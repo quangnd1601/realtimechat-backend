@@ -11,7 +11,9 @@ const { connectDB } = require('./libs/db');
 var authRoute = require("./routes/authRoute");
 const userRouter = require("./routes/userRoute")
 const {protectedRoute} = require("./middlewares/authMiddleware")
-
+const friendRoute = require("./routes/friendRoute")
+const messageRoutes = require("./routes/messageRoute");
+const conversationRoute = require("./routes/conversationRoute")
 
 // 1. Kết nối CSLD
 var app = express();
@@ -36,6 +38,11 @@ app.use("/api/auth", authRoute);
 // 2. private route
 app.use(protectedRoute)
 app.use("/api/users", userRouter)
+app.use("/api/friends", friendRoute);
+app.use("/api/messages", messageRoutes);
+app.use("/api/conversations", conversationRoute);
+
+
 
 
 // catch 404 and forward to error handler

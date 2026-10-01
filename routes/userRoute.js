@@ -1,5 +1,4 @@
 const express = require("express")
-const mongose = require("mongoose");
 const { authMe, test } = require("../controllers/userController");
 
 var router = express.Router();
